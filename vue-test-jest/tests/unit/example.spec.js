@@ -20,4 +20,11 @@ describe("HiChild.vue", () => {
     });
     expect(wrapper.text()).toMatch(message);
   });
+
+  it("renders error when message is too short", () => {
+    const wrapper = shallowMount(HiChild, {
+      propsData: { message: 'hi' }
+    });
+    expect(wrapper.find('.error').exists()).toBe(true);
+  });
 });
